@@ -7,7 +7,7 @@ BaseModel class that other class inherits from
 
 from uuid import uuid4
 from datetime import datetime
-from database import db
+from config import db
 from typing import Dict
 
 

@@ -2,9 +2,9 @@
 """
 flask app module
 """
-from config import app
+from flask import Flask
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 
 @app.route('/')
