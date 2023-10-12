@@ -12,6 +12,5 @@ database = getenv("FPL_DB")
 password = getenv("FPL_PWD")
 host = getenv("FPL_HOST")
 
-
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqldb://{user}:{password}@{host}/{database}'
 db = SQLAlchemy(app)
