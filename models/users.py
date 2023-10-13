@@ -3,9 +3,10 @@
 fpl users module
 """
 from basemodel import BaseModel, db
+from flask_login import UserMixin
 
 
-class User(BaseModel):
+class User(UserMixin, BaseModel):
     """
     The User class contains all the user's info
     """
