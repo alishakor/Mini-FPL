@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-"""
-fpl Team module
-"""
-from basemodel import BaseModel
+"""FPL Teams created by users"""
+from models.basemodel import BaseModel, db
 
 
-class Team(BaseModel):
-    """
-    The Team class that inherits from base class
-    """
-    __tablename__ = 'teams'
-    player_id = db.Column(db.String(128), foreign_key=True,
-                          unique=True, nullable=False)
-    team_name = db.Column(db.String(128), unique=True, nullable=False)
-    budget = db.Column(db.integer, default=100)
+class FPLTeam(BaseModel):
+    __tablename__ = "teams"
+    name = db.Column(db.String(128), unique=True, nullable=False)
+    team_id = db.Column(db.Integer, primary_key=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+    points = db.Column(db.Integer, nullable=False)
+    budget = db.Column(db.Numeric(precision=3, scale=1), nullable=False)
+    user = db.relationship('User', backref="teams")
+

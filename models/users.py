@@ -2,7 +2,7 @@
 """
 fpl users module
 """
-from basemodel import BaseModel, db
+from models.basemodel import BaseModel, db
 
 
 class User(BaseModel):

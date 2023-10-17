@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""
-fpl players module
-"""
-from models.base_model import BaseModel
+"""players db module"""
+from models.basemodel import BaseModel, db
 
 
 class Player(BaseModel):
-    """
-    The Team class that inherits from base class
-    """
-    __tablename__ = 'players'
-    team_id = db.Column(db.String(128), foreign_key=True,
-                        unique=True, nullable=False)
-    player_name = db.Column(db.String(128), unique=True, nullable=False)
-    budget = db.Column(db.Integer, nullable=False, default=100)
+    __tablename__ = "players"
+    player_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(128), unique=True, nullable=False)
+    club = db.Column(db.String(60), nullable=False)
+    team_id = db.Column(db.Integer, db.ForeignKey('teams.team_id'))
+    position = db.Column(db.String(60), nullable=False)
+    point = db.Column(db.Integer, nullable=False)
+    cost = db.Column(db.Integer, nullable=False)
+    team = db.relationship('Team', backref='players')
+
