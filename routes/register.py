@@ -5,31 +5,24 @@ Handling the registration route
 from config import db, app
 from forms.signup import RegistrationForm
 from flask import render_template, request, redirect, url_for, flash
-from flask_bcrypt import Bcrypt
-from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
-
-
-bcrypt = Bcrypt(app)
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
-    """
-    code to validate and add user to database
-    """
     form = RegistrationForm()
     if request.method == 'POST' and form.validate_on_submit():
-        # check if the email already exists
+        # Check if the email already exists
         existing_user = User.query.filter_by(email=form.email.data).first()
         if existing_user:
             flash('Email already in use. Please use a different email.', 'danger')
             return redirect(url_for('register'))
 
-        # Hash the password
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        # Hash the password using generate_password_hash
+        hashed_password = generate_password_hash(form.password.data)
 
-        # creating a user and saving to database
+        # Create a user and save to the database
         user = User(
             username=form.username.data,
             email=form.email.data,
@@ -39,7 +32,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        flash('USer registered successfully!', 'success')
+        flash('User registered successfully!', 'success')
         return redirect(url_for('login'))
 
     return render_template('register.html', form=form)
