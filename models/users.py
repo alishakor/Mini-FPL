@@ -2,8 +2,12 @@
 """
 fpl users module
 """
+<<<<<<< HEAD
+from models.basemodel import BaseModel, db
+=======
 from basemodel import BaseModel, db
 from flask_login import UserMixin
+>>>>>>> 6c0088702e1eeb7e6b67b6457850265c7027e6b1
 
 
 class User(UserMixin, BaseModel):
