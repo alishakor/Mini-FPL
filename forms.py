@@ -3,7 +3,7 @@
 A user registration module
 """
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Length, EqualTo
 
 
@@ -26,3 +26,11 @@ class RegistrationForm(FlaskForm):
                     message='Password must match')])
     confirm = PasswordField('Confirm Password')
     accept_tos = BooleanField('I accept the TOS', validators=[DataRequired()])
+    submit = SubmitField('Sign Up')
+
+
+class LoginForm(FlaskForm):
+    email_or_username = StringField(
+        'Email or Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Login')
