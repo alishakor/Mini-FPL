@@ -2,7 +2,7 @@
 """
 Handling the registration route
 """
-from basemodel import app
+from models.basemodel import app
 from routes import auth_bp
 from forms import RegistrationForm
 from forms import LoginForm
