@@ -8,8 +8,8 @@ from forms import RegistrationForm
 from forms import LoginForm
 from flask import render_template, redirect, url_for, flash
 from models.users import User
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask_login import LoginManager, login_user, logout_user, login_required
+from config import bcrypt
 
 
 login_manager = LoginManager()
@@ -25,7 +25,7 @@ def register():
             flash('Email already in use. Please use a different email.', 'danger')
         else:
             # Hash the password using generate_password_hash
-            hashed_password = generate_password_hash(form.password.data)
+            hashed_password = bcrypt.generate_password_hash(form.password.data)
             
             # Create a user and save to the database
             user = User(
@@ -35,8 +35,7 @@ def register():
                 last_name=form.last_name.data,
                 password=hashed_password)
             
-            db.session.add(user)
-            db.session.commit()
+            user.save()
             
             flash('User registered successfully!', 'success')
             return redirect(url_for('auth.login'))
@@ -52,7 +51,7 @@ def load_user(user_id):
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
-def login_post():
+def login():
     form = LoginForm()  # Use your LoginForm class
 
     if form.validate_on_submit():
@@ -69,7 +68,7 @@ def login_post():
             # Query the database to find the user by username
             user = User.query.filter_by(username=form.email_or_username.data).first()
 
-        if user and check_password_hash(user.password, password):
+        if user and bcrypt.check_password_hash(user.password, password):
             # Use the check_password_hash method to verify the password
             login_user(user, remember=True)
             flash('Logged in successfully.', 'success')

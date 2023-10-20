@@ -6,60 +6,60 @@
 <body>
     <h1>Registration</h1>
     
-    <!-- <form method="POST" action="{{ url_for('auth.register') }}">
+    <form method="POST" action="{{ url_for('auth.register') }}">
         {{ form.hidden_tag() }}
         
         <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="{{ form.username.data }}" size="30" placeholder="Enter your username">
+            {{ form.username.label }}
+            {{ form.username(size=30, id='username', placeholder='Enter your username') }}
             {% for error in form.username.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
         </div>
         
         <div>
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" value="{{ form.email.data }}" size="30" placeholder="Enter your email address">
+            {{ form.email.label }}
+            {{ form.email(size=30, id='email', placeholder='Enter your email address') }}
             {% for error in form.email.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
         </div>
         
         <div>
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="first_name" value="{{ form.first_name.data }}" size="30" placeholder="Enter your first name">
+            {{ form.first_name.label }}
+            {{ form.first_name(size=30, id='first_name', placeholder='Enter your first name') }}
             {% for error in form.first_name.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
         </div>
         
         <div>
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" value="{{ form.last_name.data }}" size="30" placeholder="Enter your last name">
+            {{ form.last_name.label }}
+            {{ form.last_name(size=30, id='last_name', placeholder='Enter your last name') }}
             {% for error in form.last_name.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
         </div>
         
         <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" size="20" placeholder="Enter your password">
+            {{ form.password.label }}
+            {{ form.password(size=20, id='password', placeholder='Enter your password') }}
             {% for error in form.password.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
         </div>
         
         <div>
-            <label for="confirm">Confirm Password</label>
-            <input type="password" id="confirm" name="confirm" size="20" placeholder="Confirm your password">
+            {{ form.confirm.label }}
+            {{ form.confirm(size=20, id='confirm', placeholder='Confirm your password') }}
             {% for error in form.confirm.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
         </div>
         
         <div>
-            <input type="checkbox" id="accept_tos" name="accept_tos">
-            <label for="accept_tos">I accept the Terms of Service</label>
+            {{ form.accept_tos(size=20, id='accept_tos') }}
+            {{ form.accept_tos.label(for='accept_tos') }}
             {% for error in form.accept_tos.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
@@ -68,7 +68,6 @@
         <div>
             <input type="submit" value="Register">
         </div>
-    </form> -->
+    </form>
 </body>
 </html>
-
