@@ -1,58 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>FPL Players</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container">
-        <h1>Statistics</h1>
-        <div class="table-responsive-sm">
-            <table class="table">
-                <thead>
-                    <tr style="height: 100px;">
-                        <th></th>
-                        <th>Image</th>
-                        <th>Player</th>
-                        <th>Position</th>
-                        <th>Team</th>
-                        <th>Cost</th>
-                        <th>Selected by %</th>
-                        <th>Form</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for player in player_data %}
-                    <tr style="height: 100px;">
-                        <td>i</td>
-                        <td><img src="{{ player.photo }}" alt="Player Image" width="50"></td>
-                        <td>{{ player.web_name }}</td>
-                        <td> 
-                            {% for element_type in element_types %}
-                                {% if element_type.id == player.element_type %}
-                                    {{ element_type.singular_name_short }}
-                                {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td>
-                            {% for team in teams %}
-                                {% if team.id == player.team %}
-                                    {{ team.short_name }}
-                                {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td>{{ player.now_cost / 10 }}</td>
-                        <td>{{ player.selected_by_percent }}</td>
-                        <td>{{ player.form }}</td>
-                        <td>{{ player.total_points }}</td>
-                    </tr>
-                    
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
 
+{% block content %}
+<div class="container">
+    <h1>Statistics</h1>
+    <div class="table-responsive-sm">
+        <table class="table">
+            <thead>
+                <tr style="height: 100px;">
+                    <th></th>
+                    <th>Image</th>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <th>Team</th>
+                    <th>Cost</th>
+                    <th>Selected by %</th>
+                    <th>Form</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in player_data %}
+                <tr style="height: 100px;">
+                    <td>i</td>
+                    <td><img src="{{ player.photo }}" alt="Player Image" width="50"></td>
+                    <td>{{ player.web_name }}</td>
+                    <td> 
+                        {% for element_type in element_types %}
+                            {% if element_type.id == player.element_type %}
+                                {{ element_type.singular_name_short }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for team in teams %}
+                            {% if team.id == player.team %}
+                                {{ team.short_name }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ player.now_cost / 10 }}</td>
+                    <td>{{ player.selected_by_percent }}</td>
+                    <td>{{ player.form }}</td>
+                    <td>{{ player.total_points }}</td>
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
