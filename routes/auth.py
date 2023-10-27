@@ -12,10 +12,6 @@ from flask_login import LoginManager, login_user, logout_user, login_required
 from config import bcrypt
 
 
-login_manager = LoginManager()
-# login_manager.login_view = 'login'
-login_manager.init_app(app)
-
 @auth_bp.route('/register', methods=['GET', 'POST'], strict_slashes=False)
 def register():
     form = RegistrationForm()
@@ -44,10 +40,6 @@ def register():
 
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    """Retrieve the user using the user id."""
-    return User.query.get(user_id)
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])

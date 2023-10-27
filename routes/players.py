@@ -10,6 +10,7 @@ import requests
 
 api_url = "https://fantasy.premierleague.com/api/bootstrap-static/"
 
+
 @players_bp.route('/', methods=['GET', 'POST'], strict_slashes=False)
 def player_data():
     try:
