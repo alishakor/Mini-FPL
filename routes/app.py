@@ -7,9 +7,11 @@ from flask_cors import CORS
 from flask import jsonify, Response
 from . import auth_bp
 from . import players_bp
+from . import create_bp
 
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(players_bp, url_prefix='/players')
+app.register_blueprint(create_bp, url_prefix='/create-team')
 CORS(app)
 
 

@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <form>
+            <div class="mb-3">
+                <label for="teamName" class="form-label">Team Name</label>
+                <input type="text" class="form-control" id="teamName" placeholder="Team Name">
+            </div>
+
+            <div class="mb-3">
+                <label for="favoriteClub" class="form-label">Favorite Club</label>
+                <select class="form-select" id="favoriteClub">
+                    <option value="" disabled selected>Select your favorite club</option>
+                    <option value="Arsenal">Arsenal</option>
+                    <option value="Manchester United">Manchester United</option>
+                    <option value="Chelsea">Chelsea</option>
+                    <option value="Liverpool">Liverpool</option>
+                    <!-- Add more options for other clubs as needed -->
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+
+            <div class="player-card">
+                <h3 id="player-name">Player Name</h3>
+                <p>Position: <span id="player-position">Position</span></p>
+                <p>Price: $<span id="player-price">Price</span></p>
+                <button id="select-player">Select Player</button>
+            </div>
+        </div>
+
+        <button id="submitBtn" onclick="submitTeam()" disabled>Create Team</button>
+    </section>
+{% endblock %}
+
+<!-- {% block javascript %}
+    {{ super() }} {# Include the scripts from the base template first #}
+    <script src="../static/scripts/createTeam.js"></script>
+{% endblock %} -->
