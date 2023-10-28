@@ -5,10 +5,12 @@ flask app module
 from flask_cors import CORS
 from flask import jsonify, Response
 from routes import *
-from config import app
+from config import app, db
 from flask_login import LoginManager
+from flask_migrate import Migrate
 app.register_blueprint(auth_bp)
 app.register_blueprint(players_bp)
+migrate = Migrate(app, db)
 CORS(app)
 
 login_manager = LoginManager()
