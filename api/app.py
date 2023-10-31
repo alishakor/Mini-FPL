@@ -8,6 +8,7 @@ from models.basemodel import app, db
 app.register_blueprint(api)
 migrate = Migrate(app, db)
 
+
 @app.errorhandler(404)
 def error(error) -> Response:
     """
@@ -23,4 +24,4 @@ def forbidden_err(error):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

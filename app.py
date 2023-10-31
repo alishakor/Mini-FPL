@@ -10,6 +10,7 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 app.register_blueprint(auth_bp)
 app.register_blueprint(players_bp)
+app.register_blueprint(fixtures_bp)
 migrate = Migrate(app, db)
 CORS(app)
 
