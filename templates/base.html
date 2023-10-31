@@ -1,111 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title> Responsive Sidebar Menu</title>
-    <link rel="stylesheet" href="../static/styles/base.css">
-    <link rel="stylesheet" href="../static/styles/players.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">Fantasy</div>
-        <i class='bx bx-menu' id="btn" ></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Status</span>
-        </a>
-         <span class="tooltip">Status</span>
-      </li>
-      <li>
-       <a href="#">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">Points</span>
-       </a>
-       <span class="tooltip">Points</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Pick Team</span>
-       </a>
-       <span class="tooltip">Pick Team</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Transfers</span>
-       </a>
-       <span class="tooltip">Transfers</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Leagues & Cups</span>
-       </a>
-       <span class="tooltip">Legues & Cups</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Fixtures</span>
-       </a>
-       <span class="tooltip">Fixtures</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Player Statistics</span>
-       </a>
-       <span class="tooltip">Player Statistics</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Settings</span>
-       </a>
-       <span class="tooltip">Settings</span>
-     </li>
-     <li class="profile">
-         <div class="profile-details">
-           <img src="profile.jpg" alt="profileImg">
-           <div class="name_job">
-             <div class="name">Prem Shahi</div>
-             <div class="job">Manager</div>
-           </div>
-         </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
-     </li>
-    </ul>
-  </div>
-  <section class="home-section">
-    <section class="banner">
-        <!-- <div class="text">Dashboard</div>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Responsive Sidebar Menu</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../static/styles/base.css" />
+		<link rel="stylesheet" href="../static/styles/create.css" />
+
+		<!-- Boxicons CDN Link -->
+		<link
+			href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="sidebar">
+			<div class="logo-details">
+				<i class="bx bxl-c-plus-plus icon"></i>
+				<div class="logo_name">Fantasy</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<div class="nav-list">
+				<div>
+					<a href="#">
+						<i class="bx bx-grid-alt"></i>
+						<span class="links_name">Status</span>
+					</a>
+					<span class="tool-tip">Status</span>
+				</div>
+				<div>
+					<a href="#">
+						<i class="bx bx-user"></i>
+						<span class="links_name">Points</span>
+					</a>
+					<span class="tool-tip">Points</span>
+				</div>
+				<div>
+					<a href="{{ url_for('my_team.index') }}">
+						<i class="bx bx-chat"></i>
+						<span class="links_name">Pick Team</span>
+					</a>
+					<span class="tool-tip">Pick Team</span>
+				</div>
+				<div>
+					<a href="#">
+						<i class="bx bx-pie-chart-alt-2"></i>
+						<span class="links_name">Transfers</span>
+					</a>
+					<span class="tool-tip">Transfers</span>
+				</div>
+				<div>
+					<a href="#">
+						<i class="bx bx-folder"></i>
+						<span class="links_name">Leagues & Cups</span>
+					</a>
+					<span class="tool-tip">Legues & Cups</span>
+				</div>
+				<div>
+					<a href="#">
+						<i class="bx bx-cart-alt"></i>
+						<span class="links_name">Fixtures</span>
+					</a>
+					<span class="tool-tip">Fixtures</span>
+				</div>
+				<div>
+					<a href="{{ url_for('players.player_data') }}">
+						<i class="bx bx-heart"></i>
+						<span class="links_name">Player Statistics</span>
+					</a>
+					<span class="tool-tip">Player Statistics</span>
+				</div>
+				<div>
+					<a href="#">
+						<i class="bx bx-cog"></i>
+						<span class="links_name">Settings</span>
+					</a>
+					<span class="tool-tip">Settings</span>
+				</div>
+				<div class="profile">
+					<div class="profile-details">
+						<img src="profile.jpg" alt="profileImg" />
+						<div class="name_job">
+							<div class="name">Prem Shahi</div>
+							<div class="job">Manager</div>
+						</div>
+					</div>
+					<a href="{{ url_for('auth.logout') }}">
+						<i class="bx bx-log-out" id="log_out"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<section class="home-section">
+			<section class="banner">
+				<!-- <div class="text">Dashboard</div>
         <h2>You are logged in as <b>Sideeq Kolade</b></h2> -->
-        <div class="banner-img">
-            <img class="banner-jpg" src="../static/images/banner_img.png" alt="bannerImg">
-        </div>
-    </section>
+				<div class="banner-img">
+					<img
+						class="banner-jpg"
+						src="../static/images/banner_img.png"
+						alt="bannerImg"
+					/>
+				</div>
+			</section>
 
-    <section>
-        {% block content %}
-
-        {% endblock %} 
-        
-    </section>
-  </section>
-  {% block javascript %}
-    <script src="../static/scripts/base.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <!-- Additional scripts can be included here -->
-{% endblock %}
-</body>
+			<section>{% block content %} {% endblock %}</section>
+		</section>
+		{% block javascript %}
+		<script src="../static/scripts/base.js"></script>
+    <script src="../static/scripts/create.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"
+		></script>
+		<!-- Additional scripts can be included here -->
+		{% endblock %}
+	</body>
 </html>

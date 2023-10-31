@@ -1,0 +1,57 @@
+.squad-border {
+    /* background: linear-gradient(to top, rgb(2, 239, 255), rgb(98, 123, 255)); */
+    align-items: center;
+}
+
+.squad-border h4 {
+    color: rgb(9, 107, 9);
+}
+
+.squad-create {
+    background-image: url(../images/pitch.svg);
+    background-size: cover;
+}
+
+.squad-create h3 {
+    font-size: 16px;
+}
+
+.squad-create h4 {
+    font-size: 15px;
+}
+
+.squad-players {
+    border: 0;
+    background: 0;
+}
+
+.squad-jersey {
+    height: 100px;
+}
+
+#price {
+    background-color: rgba(233, 249, 241, 0.3);
+    color: #ffffff;
+    font-weight: bold; 
+}
+
+#player-name {
+    background-color: #37003C;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#opponent {
+    background-color: rgba(233, 249, 241, 0.3);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.team-sub {
+    background-color: #97f7c5e6;
+}
+
+.btn {
+    width: 400px;
+    padding: 10px;
+} 

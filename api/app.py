@@ -8,6 +8,13 @@ from models.basemodel import app, db
 app.register_blueprint(api)
 migrate = Migrate(app, db)
 
+"""
+flask app module
+"""
+from config import app
+from flask_cors import CORS
+from flask import jsonify, Response
+
 
 @app.errorhandler(404)
 def error(error) -> Response:

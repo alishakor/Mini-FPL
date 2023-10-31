@@ -11,6 +11,8 @@ from flask_migrate import Migrate
 app.register_blueprint(auth_bp)
 app.register_blueprint(players_bp)
 app.register_blueprint(fixtures_bp)
+app.register_blueprint(create_bp)
+app.register_blueprint(pick_bp)
 migrate = Migrate(app, db)
 CORS(app)
 
