@@ -50,7 +50,7 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-@auth_bp.route('/login', methods=['GET', 'POST'])
+@auth_bp.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     form = LoginForm()  # Use your LoginForm class
 
