@@ -40,7 +40,7 @@
 					<span class="tool-tip">Points</span>
 				</div>
 				<div>
-					<a href="#">
+					<a href="{{ url_for('my_team.index') }}">
 						<i class="bx bx-chat"></i>
 						<span class="links_name">Pick Team</span>
 					</a>
@@ -68,7 +68,7 @@
 					<span class="tool-tip">Fixtures</span>
 				</div>
 				<div>
-					<a href="#">
+					<a href="{{ url_for('players.player_data') }}">
 						<i class="bx bx-heart"></i>
 						<span class="links_name">Player Statistics</span>
 					</a>
@@ -89,7 +89,9 @@
 							<div class="job">Manager</div>
 						</div>
 					</div>
-					<i class="bx bx-log-out" id="log_out"></i>
+					<a href="{{ url_for('auth.logout') }}">
+						<i class="bx bx-log-out" id="log_out"></i>
+					</a>
 				</div>
 			</div>
 		</div>
