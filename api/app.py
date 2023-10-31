@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
+
+from api.v1 import *
+from flask import jsonify, Response
+from flask_migrate import Migrate
+from models.basemodel import app, db
+
+app.register_blueprint(api)
+migrate = Migrate(app, db)
+
 """
 flask app module
 """
 from config import app
 from flask_cors import CORS
 from flask import jsonify, Response
-from . import auth_bp
-from . import players_bp
-from . import create_bp
-from . import pick_bp
-
-app.register_blueprint(auth_bp, url_prefix='/auth')
-app.register_blueprint(players_bp, url_prefix='/players')
-app.register_blueprint(create_bp, url_prefix='/create-team')
-app.register_blueprint(pick_bp, url_prefix='/my-team')
-CORS(app)
 
 
 @app.errorhandler(404)
@@ -32,4 +31,4 @@ def forbidden_err(error):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

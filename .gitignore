@@ -1,1 +1,6 @@
 fplenv
+.idea
+__pycache__
+api/migrations
+models/__pycache__
+routes/__pycache__

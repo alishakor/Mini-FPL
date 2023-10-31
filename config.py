@@ -8,7 +8,7 @@ from os import getenv
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-
+from flask_migrate import Migrate
 user = getenv("FPL_USER")
 database = getenv("FPL_DB")
 password = getenv("FPL_PWD")
