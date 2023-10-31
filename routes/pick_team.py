@@ -8,7 +8,7 @@ from models.basemodel import app
 from routes import pick_bp
 
 
-@pick_bp.route('/',  methods=['GET', 'POST'], strict_slashes=False)
+@pick_bp.route('/my-team',  methods=['GET', 'POST'], strict_slashes=False)
 def index():
 
     return render_template('pick-team.html')
