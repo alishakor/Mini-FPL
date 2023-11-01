@@ -42,7 +42,7 @@ def register():
 
 
 
-@auth_bp.route('/login', methods=['GET', 'POST'])
+@auth_bp.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     form = LoginForm()  # Use your LoginForm class
 

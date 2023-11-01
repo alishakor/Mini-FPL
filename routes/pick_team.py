@@ -7,6 +7,7 @@ from models.players import Player
 from models.basemodel import app
 from routes import pick_bp
 from flask_login import login_required
+from models.teams import FPLTeam
 
 
 @pick_bp.route('/my_team',  methods=['GET', 'POST'], strict_slashes=False)
@@ -17,7 +18,7 @@ def index():
 
 @pick_bp.route('/get_player_data')
 def get_player_data():
-    Team = Team.query.all()
+    players = FPLTeam.query.all()
     player_data = [{
         'id': player.id,
         'name': player.name,
