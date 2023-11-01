@@ -24,10 +24,12 @@ def player_data():
         teams = data['teams']
         element_types = data['element_types']
 
+        base_image_url = '../static/images/'
+        
         # Sort the player_data list by total_points in descending order
         player_data = sorted(player_data, key=lambda x: x['total_points'], reverse=True)
 
-        return render_template('players.html', player_data=player_data, events=events, teams=teams, element_types=element_types)
+        return render_template('players.html', player_data=player_data, events=events, teams=teams, element_types=element_types, base_image_url=base_image_url)
 
     except requests.exceptions.RequestException as e:
         return f"Error: {e}"

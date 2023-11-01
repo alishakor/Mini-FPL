@@ -5,22 +5,25 @@
     <div class="container">
         <div class="mt-5">
             <div class="squad-border">
-                <h2 class="overflow-y-hidden mb-5">Pick Team - Team Name</h2>
+                <h2 class="overflow-y-hidden mb-5">Pick Team - {{ team.name }}</h2>
                 <h3 class="text-center mb-5 overflow-y-hidden">Gameweek 11</h3>
             </div>   
 
             <div class="squad-create">
                 <div class="d-flex justify-content-sm-evenly">
                     <div class="player-card mt-5 overflow-y-hidden">
+                        {% for player in starting_goalkeepers %}
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                            {% for footballer in player_data %}
+                                {% if footballer.web.name == player.name %}
+                                    <div>
+                                        <img class="squad-jersey" src="{{ player.image }}">
+                                    </div>
+                            <div class="overflow-y-hidden text-center">{{ player.name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ player.opp }}</div>
                         </button>
+                        {% endfor %}
                     </div>
-
                 </div>
 
                 <div class="d-flex justify-content-sm-evenly">
