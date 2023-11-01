@@ -8,7 +8,8 @@ from models.basemodel import app
 from routes import create_bp
 
 
-@create_bp.route('/create-team',  methods=['GET', 'POST'], strict_slashes=False)
+@create_bp.route('/create_team',  methods=['GET', 'POST'], strict_slashes=False)
+
 def index():
     return render_template('create-team.html')
 

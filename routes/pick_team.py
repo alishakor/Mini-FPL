@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-team selectionn from squad
+team selection from squad
 """
 import random
 from flask import jsonify, render_template
@@ -13,9 +13,10 @@ import requests
 api_url = "https://fantasy.premierleague.com/api/bootstrap-static/"
 
 
-@pick_bp.route('/my-team',  methods=['GET', 'POST'], strict_slashes=False)
+@pick_bp.route('/my_team',  methods=['GET', 'POST'], strict_slashes=False)
+@login_required
 def index():
-
+    """Select your fpl team"""
     return render_template('pick-team.html')
 
 @pick_bp.route('/get_team_data', methods=['GET', 'POST'], strict_slashes=False)

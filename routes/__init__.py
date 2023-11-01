@@ -9,7 +9,6 @@ create_bp = Blueprint('team_create', __name__, url_prefix='/')
 pick_bp = Blueprint('my_team', __name__, url_prefix='/')
 
 
-
 from routes.auth import *
 from routes.players import *
 from routes.status import *

@@ -1,10 +1,6 @@
-#!/usr/bin/env python3
 import requests
-from models.players import Player
-from config import app
-
-# import sys
-
+from datetime import datetime
+IDS = []
 endpoints = [
     "bootstrap-static",
     "fixtures",
@@ -12,68 +8,45 @@ endpoints = [
     "event/{event_id}/live"
 ]
 
-players_url = f"https://fantasy.premierleague.com/api/{endpoints[0]}/"
+fixtures_url = f"https://fantasy.premierleague.com/api/{endpoints[1]}?future=1"
+url = f"https://fantasy.premierleague.com/api/{endpoints[0]}"
+res = requests.get(fixtures_url)
+url_res = requests.get(url)
+out = res.json()
+output = url_res.json()
+event = output.get('events')
+for i in range(0, len(event)):
+    data = event[i].get('id')
+    IDS.append(data)
+my_set = set()  # Define a set to store unique dates
+event_li = []
+for i in range(0, len(out)):
+    data = out[i].get('kickoff_time')
+    event_id = out[i].get('event')
+    event_li.append(event_id)
+    time = (data.split('T'))[0].split('-')
+    year, month, day = (time[0], time[1], time[2])
+    year = int(year)
+    month = int(month)
+    day = int(day)
+    date_obj = datetime(year, month, day)
 
-r = requests.get(players_url)
-if r.status_code == 200:
-    info = r.json()
-    total_players = info["total_players"]
-    print(f"Total players: {total_players}")
-    # for n in range(3):
-    #     player_data = info["elements"][n]
-    #     player_id = player_data.get("id")
-    #     name = player_data.get("web_name")
-    #     point = player_data.get("total_points")
-    #     photo = player_data.get("photo")
-    #     cost = player_data["now_cost"] / 10.0
-    #     print(f"Player_id: {player_id}")
-    #     print(f"The player's name: {name}")
-    #     print(f"The player's point: {point}")
-    #     # print(f"Player's photo: {photo}")
-    #     print(f"The player's cost: {cost}")
+    # Format the date including the day of the week
+    date_in_words = date_obj.strftime("%A %d %B %Y")
 
+    my_set.add(date_in_words)  # Add the formatted date to the set
 
+# Convert the set to a list
+date_list = list(my_set)
 
-        # # team index rep the id of the team/club
-        # team_index = player_data["team"] - 1
-        # team_data = info["teams"][team_index]
-        # club_name = team_data.get("name")
-        # print(f"The player's club: {club_name}")
-        #
-        # # element type rep the players position e.g GK:1, DF:2, MF:3, FWD:4
-        # element_type_id = player_data.get("element_type")
-        # # position = next(item for item in info["element_types"] if item["id"] == element_type_id)
-        # position = None
-        # for item in info["element_types"]:
-        #     if item["id"] == element_type_id:
-        #         position = item
-        #         break
-        # if position:
-        #     position_value = position["plural_name"]
-        #     print(f"position value: {position_value}")
-        # else:
-        #     print("Position not found")
-        #
-        # # Event and Gameweek stat
-        # # for n in range(len(info["events"])):
-        #
-        # event_id = info["events"][0].get("id")
-        # game_week = info["events"][event_id - 1].get("name")
-        # # print(f"The event id: {event_id}")
-        # print(f"The week is: {game_week}")
-        #
-        # # baller_id = info["elements"][0].get("id")
-        # # print(f"Player_id: {baller_id}")
-        # team_id = team_index
-        # print(f"team_id: {team_id}")
-    '''with app.app_context():
-        player_stat = Playertest(
-                name=name,
-                club=club_name,
-                position=position_value,
-                cost=cost,
-                point=point,
-                player_id=baller_id,
-                team_id=team_id
-        )
-        player_stat.save()'''
+# Sort the list chronologically
+sorted_dates = sorted(date_list, key=lambda x: datetime.strptime(x, "%A %d %B %Y"))
+
+# for date in sorted_dates:
+    # print(date)
+
+# for i in IDS:
+#     print(i)
+
+for a in event_li:
+    print(a)
