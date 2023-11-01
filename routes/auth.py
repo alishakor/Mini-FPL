@@ -64,7 +64,7 @@ def login():
             # Use the check_password_hash method to verify the password
             login_user(user, remember=True)
             flash('Logged in successfully.', 'success')
-            return redirect(url_for('profile'))  # Redirect to a different view after successful login
+            return redirect(url_for('team_create.index'))  # Redirect to a different view after successful login
         else:
             flash('Login failed. Please check your credentials.', 'danger')
 

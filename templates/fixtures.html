@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPL Game Schedule</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='fixtures.css') }}">
-</head>
-<body>
-    <header>
-        <h1>English Premier League Schedule</h1>
-    </header>
-    <main>
-        <section class="game-schedule">
-            <h2>Game Week {{ game_week }}</h2>
-            <ul>
-                {% for match in matches %}
-                <li>{{ match.date }} - {{ match.home_team }} vs. {{ match.away_team }}</li>
-                {% endfor %}
-            </ul>
-        </section>
-    </main>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="game-schedule">
+            <h1 class="overflow-y-hidden">English Premier League Schedule</h1>
+            {% for date in sorted_dates %}
+            <h2 class="overflow-y-hidden">Date {{ date }}</h2>
+            {% endfor %}
+<!--            <h3 class="overflow-y-hidden"> Date {{ date_in_words }}</h3>-->
+<!--            <ul>-->
+<!--                {% for match in matches %}-->
+<!--                <li>{{ match.date }} - {{ match.home_team }} vs. {{ match.away_team }}</li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+        </div>
+    </div>
+</section>
+{% endblock %}

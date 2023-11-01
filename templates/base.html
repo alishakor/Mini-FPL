@@ -9,6 +9,7 @@
 		/>
 		<link rel="stylesheet" href="../static/styles/base.css" />
 		<link rel="stylesheet" href="../static/styles/create.css" />
+		<link rel="stylesheet" href="../static/styles/fixtures.css" />
 
 		<!-- Boxicons CDN Link -->
 		<link
@@ -58,10 +59,10 @@
 						<i class="bx bx-folder"></i>
 						<span class="links_name">Leagues & Cups</span>
 					</a>
-					<span class="tool-tip">Legues & Cups</span>
+					<span class="tool-tip">Leagues & Cups</span>
 				</div>
 				<div>
-					<a href="#">
+					<a href="{{ url_for('fixtures.index') }}">
 						<i class="bx bx-cart-alt"></i>
 						<span class="links_name">Fixtures</span>
 					</a>
