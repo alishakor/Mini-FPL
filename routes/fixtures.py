@@ -24,6 +24,7 @@ def index():
 
     for i in range(0, len(out)):
         data = out[i].get('kickoff_time')
+        print(data)
         time = (data.split('T'))[0].split('-')
         year, month, day = (time[0], time[1], time[2])
         year = int(year)
@@ -42,21 +43,4 @@ def index():
     # Sort the list chronologically
     sorted_dates = sorted(date_list, key=lambda x: datetime.strptime(x, "%A %d %B %Y"))
     return render_template('fixtures.html', sorted_dates=sorted_dates)
-
-
-
-def get_fixtures_data():
-    """ Retrieve the fixtures data for the season
-    """
-    # url = "https://fantasy.premierleague.com/api/fixtures/"
-    # response = ''
-    # while response == '':
-    #     try:
-    #         response = requests.get(url)
-    #     except:
-    #         time.sleep(5)
-    # if response.status_code != 200:
-    #     raise Exception("Response was code " + str(response.status_code))
-    # data = json.loads(response.text)
-    # return data
 

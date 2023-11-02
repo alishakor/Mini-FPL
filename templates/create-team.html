@@ -225,7 +225,7 @@
         <div class="container d-flex justify-content-sm-evenly mt-4 mb-4">
             <button id="resetBtn" class="btn btn-danger btn-lg" onclick="resetTeam()">
                 Reset<span class="align-middle"><i class='bx bx-refresh' style='color:#ffffff'></i></span></button>
-            <button id="submitBtn" class="btn btn-success btn-lg" onclick="submitTeam()" disabled>Create Team <a href="{{ url_for("my_team.index") }}"></a></button>
+            <button id="submitBtn" class="btn btn-success btn-lg" onclick="submitTeam()" ><a href="{{ url_for("my_team.index") }}">Create Team </a></button>
         </div>
     </section>
 {% endblock %}

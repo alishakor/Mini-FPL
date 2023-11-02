@@ -5,6 +5,8 @@ fpl users module
 from models.basemodel import BaseModel, db
 from flask_login import UserMixin
 import bcrypt
+
+
 class User(BaseModel, db.Model, UserMixin):
     """
     The User class contains all the user's info
@@ -18,8 +20,7 @@ class User(BaseModel, db.Model, UserMixin):
     country = db.Column(db.String(128), nullable=True)
     verification_code = db.Column(db.String(128), nullable=True, unique=True)
     verified = db.Column(db.Integer, default=0)
-    players = db.relationship("Player", back_populates="user")
-    teams = db.relationship("FPLTeam", backref="user_teams", uselist=False)
+    team = db.relationship("FPLTeam", back_populates="user", uselist=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
