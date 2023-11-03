@@ -28,7 +28,7 @@ if r.status_code == 200:
             cost = data["now_cost"] / 10
             image = "https://resources.premierleague.com/premierleague/photos/players/250x250/p" + str(data["code"]) + ".png"
             selected_by_percentage = data["selected_by_percent"]
-            gameweek_point = data['event_points']
+            gameweek_point = str(data['event_points'])
 
             with app.app_context():
                 existing_player = Player.query.filter_by(name=name).first()
@@ -39,7 +39,7 @@ if r.status_code == 200:
                     existing_player.cost = cost  # Update the cost
                     existing_player.image = image
                     existing_player.selected_by_percentage = selected_by_percentage
-                    existing_player.point_per_game = gameweek_point
+                    existing_player.points_per_game = gameweek_point
                     # You can update any other fields as needed
 
                     # Commit the changes to the database
@@ -53,6 +53,6 @@ if r.status_code == 200:
                         cost=cost,
                         image=image,
                         selected_by_percentage=selected_by_percentage,
-                        point_per_game=gameweek_point,
+                        points_per_game=gameweek_point,
                     )
                     player.save()
