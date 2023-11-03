@@ -9,10 +9,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
-user = "root"
-database = "mini_fpl_db"
-password = "password"
-host = "localhost"
+user = getenv("FPL_USER")
+database = getenv("FPL_DB")
+password = getenv("FPL_PWD")
+host = getenv("FPL_HOST")
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
