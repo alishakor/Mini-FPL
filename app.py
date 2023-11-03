@@ -13,6 +13,8 @@ app.register_blueprint(players_bp)
 app.register_blueprint(fixtures_bp)
 app.register_blueprint(create_bp)
 app.register_blueprint(pick_bp)
+app.register_blueprint(point_bp)
+app.register_blueprint(league_bp)
 migrate = Migrate(app, db)
 CORS(app)
 
