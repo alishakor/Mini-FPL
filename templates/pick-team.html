@@ -5,7 +5,7 @@
     <div class="container">
         <div class="mt-5">
             <div class="squad-border">
-                <h2 class="overflow-y-hidden mb-5">Pick Team - {{ team.name }}</h2>
+                <h2 class="overflow-y-hidden mb-5">Pick Team - {{ fplteam.name }}</h2>
                 <h3 class="text-center mb-5 overflow-y-hidden">Gameweek 11</h3>
             </div>   
 
@@ -15,10 +15,10 @@
                         {% for player in starting_goalkeepers %}
                         <button id="select-player" class="squad-players">
                             {% for footballer in player_data %}
-                                {% if footballer.web.name == player.name %}
-                                    <div>
-                                        <img class="squad-jersey" src="{{ player.image }}">
-                                    </div>
+                            <div>
+                                <img class="squad-jersey" src="{{ player.image }}">
+                            </div>
+                            {% endfor %}
                             <div class="overflow-y-hidden text-center">{{ player.name }}</div>
                             <div class="overflow-y-hidden text-center">{{ player.opp }}</div>
                         </button>
