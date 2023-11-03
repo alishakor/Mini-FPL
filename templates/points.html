@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="mt-5">
+            <div class="squad-border">
+                <h2 class="overflow-y-hidden mb-5">Points - {{ team.name }}</h2>
+                <h3 class="text-center mb-5 overflow-y-hidden">Total Points - 6</h3>
+            </div>   
+
+            <div class="squad-create">
+                <div class="d-flex justify-content-sm-evenly">
+                    <div class="player-card mt-5 overflow-y-hidden">
+                        <button id="select-player" class="squad-players">
+                            <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[2].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[2].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[2].points }}</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-sm-evenly">
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[0].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[0].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[0].points }}</div>
+                        </button>
+                    </div>
+        
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                            <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[1].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[1].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[1].points }}</div>
+                        </button>
+                    </div>
+
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[5].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[5].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[5].points }}</div>
+                        </button>
+                    </div>
+    
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                            <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[3].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[3].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[3].points }}</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex create-mfds justify-content-sm-evenly">
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[4].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[4].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[4].points }}</div>
+                        </button>
+                    </div>
+        
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[10].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[10].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[10].points }}</div>
+                        </button>
+                    </div>
+
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[6].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[6].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[6].points }}</div>
+                        </button>
+                    </div>
+        
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[7].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[7].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[7].points }}</div>
+                        </button>
+                    </div>
+
+                </div>
+                
+                <div class="d-flex justify-content-sm-evenly align-item-center">
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                             <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[8].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[8].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[8].points }}</div>
+                        </button>
+                    </div>
+                    
+                    <div class="player-card mt-4 overflow-y-hidden" >
+                        <button id="select-player" class="squad-players">
+                            <div>
+                                <img class="squad-jersey" src="{{ starting_footballers[9].image }}">
+                            </div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[9].name }}</div>
+                            <div class="overflow-y-hidden text-center">{{ starting_footballers[9].points }}</div>
+                        </button>
+                    </div>
+                    
+                </div>
+                
+            </div> 
+            <div class="d-flex justify-content-sm-evenly team-sub mt-4">
+                {% for player in bench_footballers %}
+                <div class="player-card mt-3 mb-3 overflow-y-hidden" >
+                    <h3 class="overflow-y-hidden text-center mb-3">POS</h3>
+                    <button id="select-player" class="squad-players">
+                        <div>
+                            <img class="squad-jersey" src="{{ player.image }}">
+                        </div>
+                        <div id="player-name" class="overflow-y-hidden text-center">{{ player.name }}</div>
+                        <div id="opponent" class="overflow-y-hidden text-center">{{ player.points }}</div>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-sm-evenly mt-5 mb-5">
+</section>
+{% endblock %}

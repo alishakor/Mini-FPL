@@ -7,7 +7,7 @@ BaseModel class that other class inherits from
 
 from uuid import uuid4
 from datetime import datetime
-from database import db
+from config import app, db
 from typing import Dict
 
 
@@ -20,8 +20,8 @@ class BaseModel(db.Model):
         updated_at: Represents the time each class was updated
     """
     __abstract__ = True
-    id = db.Column(db.String(126), primary_key=True, unique=True, nullable=False)
-    created_at = db.Columnn(db.DateTime, nullable=False)
+    id = db.Column(db.String(128), primary_key=True, unique=True, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
     def __init__(self, *args, **kwargs):
