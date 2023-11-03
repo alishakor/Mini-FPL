@@ -11,7 +11,10 @@ from routes import create_bp
 @create_bp.route('/create_team',  methods=['GET', 'POST'], strict_slashes=False)
 
 def index():
-    return render_template('create-team.html')
+    clubs = ["Spurs", "Wolves", "Man Utd", "Crystal Palace", "Newcastle", "Sheffield Utd", "Brentford", "Burnley",
+             "Luton", "Chelsea", "Fulham", "Bournemouth", "Nott'm Forest", "Everton", "Brighton", "Aston Villa", "Man City",
+             "Arsenal", "Liverpool", "West Ham"]
+    return render_template('create-team.html', clubs=clubs)
 
 @create_bp.route('/get_player_data')
 def get_player_data():
@@ -23,3 +26,4 @@ def get_player_data():
         'price': player.price
     } for player in players]
     return jsonify(player_data)
+
