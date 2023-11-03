@@ -29,7 +29,7 @@
     height: 100px;
 }
 
-#price {
+.price {
     background-color: rgba(233, 249, 241, 0.3);
     color: #ffffff;
     font-weight: bold; 
@@ -41,7 +41,7 @@
     font-weight: bold;
 }
 
-#opponent {
+.position {
     background-color: rgba(233, 249, 241, 0.3);
     color: #ffffff;
     font-weight: bold;

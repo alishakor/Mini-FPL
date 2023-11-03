@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block scripts %}
+    <script src="../static/scripts/team.js"></script>
+    <script>
+        $(function(){
+            CreateTeam._init({{ player_data|tojson }})
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <h2 class="fs-2 mt-5 overflow-y-hidden ">Squad Selection</h2>
@@ -27,7 +36,7 @@
             <div class="mt-5">
                 <div class="squad-border">
                     <h3 class="text-center overflow-y-hidden">Bank</h3>
-                    <h4 class="text-center mb-4 overflow-y-hidden">$100.0m</h4>
+                    <h4 class="text-center mb-4 overflow-y-hidden" id="budget"></h4>
                 </div>   
                 </div>
                 <div class="squad-create">
@@ -35,24 +44,24 @@
                         <div class="player-card mt-5 overflow-y-hidden">
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-1" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-1" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-1" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
             
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-2" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-2" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-2" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
                     </div>
@@ -61,60 +70,60 @@
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-3" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-3" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-3" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
             
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-4" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-4" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-4" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
 
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-5" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-5" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-5" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
         
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-6" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-6" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-6" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
 
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-7" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-7" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-7" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div> 
                     </div>
@@ -123,60 +132,60 @@
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-8" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-8" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-8" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
             
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-9" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-9" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-9" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
 
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-10" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-10" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-10" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
             
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-11" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-11" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-11" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
 
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-12" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-12" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-12" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
                     </div>
@@ -185,36 +194,36 @@
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-13" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-13" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-13" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
             
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-14" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-14" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-14" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div>
 
                         <div class="player-card mt-5 overflow-y-hidden" >
                             <button id="select-player" class="squad-players">
                                 <div>
-                                    <img class="squad-jersey" src="../static/images/jersey.png">
+                                    <img id="image-15" class="squad-jersey" src="../static/images/jersey.png">
                                 </div>
-                                <select name="" id="player-name" class="testing">
-                                    <option value="">Player name</option>
+                                <select name="" id="player-name-15" class="testing">
+                                    <option value="">Select a player</option>
                                 </select>
-                                <div id="price" class="overflow-y-hidden text-center">$0.0</div>
+                                <div id="price-15" class="overflow-y-hidden text-center price">$0.0</div>
                             </button>
                         </div> 
                     </div>
@@ -222,9 +231,13 @@
             </div>
         </div>
         <div class="container d-flex justify-content-sm-evenly mt-4 mb-4">
-            <button id="resetBtn" class="btn btn-danger btn-lg" onclick="resetTeam()">
+            <button id="resetBtn" class="btn btn-danger btn-lg">
                 Reset<span class="align-middle"><i class='bx bx-refresh' style='color:#ffffff'></i></span></button>
-            <button id="submitBtn" class="btn btn-success btn-lg" onclick="submitTeam()" ><a href="{{ url_for("my_team.index") }}">Create Team </a></button>
+            <form method="POST" action="{{url_for('team_create.save_team')}}">
+                <input type="hidden" name="team_name" value="" id="teamNameHidden">
+                <input type="hidden" name="player_ids" value="" id="playersHidden">
+                <button id="submitBtn" class="btn btn-success btn-lg">Create Team</button>
+            </form>
         </div>
     </section>
 {% endblock %}

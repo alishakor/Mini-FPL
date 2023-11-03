@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
+{% block scripts %}
+    <script src="../static/scripts/team.js"></script>
+    <script>
+        $(function(){
+            PickTeam._init({{ team|tojson }})
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
 <section>
     <div class="container">
         <div class="mt-5">
             <div class="squad-border">
-                <h2 class="overflow-y-hidden mb-5">Pick Team - {{ fplteam.name }}</h2>
-                <h3 class="text-center mb-5 overflow-y-hidden">Gameweek 11</h3>
+                <h2 class="overflow-y-hidden mb-5">Pick Team - {{team.name}}</h2>
+                <!-- <h3 class="text-center mb-5 overflow-y-hidden">Gameweek 11</h3> -->
             </div>   
 
             <div class="squad-create">
@@ -14,13 +23,12 @@
                     <div class="player-card mt-5 overflow-y-hidden">
                         {% for player in starting_goalkeepers %}
                         <button id="select-player" class="squad-players">
-                            {% for footballer in player_data %}
-                            <div>
-                                <img class="squad-jersey" src="{{ player.image }}">
-                            </div>
-                            {% endfor %}
-                            <div class="overflow-y-hidden text-center">{{ player.name }}</div>
-                            <div class="overflow-y-hidden text-center">{{ player.opp }}</div>
+                                <div>
+                                    <img id="image-1" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-1" class="testing">
+                                </select>
+                                <div id="position-1" class="overflow-y-hidden text-center position"></div>
                         </button>
                         {% endfor %}
                     </div>
@@ -29,41 +37,45 @@
                 <div class="d-flex justify-content-sm-evenly">
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-2" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-2" class="testing">
+                                </select>
+                                <div id="position-2" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
         
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-3" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-3" class="testing">
+                                </select>
+                                <div id="position-3" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
 
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-4" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-4" class="testing">
+                                </select>
+                                <div id="position-4" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
     
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-5" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-5" class="testing">
+                                </select>
+                                <div id="position-5" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
                 </div>
@@ -71,41 +83,45 @@
                 <div class="d-flex create-mfds justify-content-sm-evenly">
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-6" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-6" class="testing">
+                                </select>
+                                <div id="position-6" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
         
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-7" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-7" class="testing">
+                                </select>
+                                <div id="position-7" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
 
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-8" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-8" class="testing">
+                                </select>
+                                <div id="position-8" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
         
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                 <div>
+                                    <img id="image-9" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-9" class="testing">
+                                </select>
+                                <div id="position-9" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
 
@@ -114,21 +130,23 @@
                 <div class="d-flex justify-content-sm-evenly align-item-center">
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-10" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-10" class="testing">
+                                </select>
+                                <div id="position-10" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
                     
                     <div class="player-card mt-4 overflow-y-hidden" >
                         <button id="select-player" class="squad-players">
-                            <div>
-                                <img class="squad-jersey" src="../static/images/jersey.png">
-                            </div>
-                            <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                            <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-11" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-11" class="testing">
+                                </select>
+                                <div id="position-11" class="overflow-y-hidden text-center position"></div>
                         </button>
                     </div>
                     
@@ -137,53 +155,57 @@
             </div> 
             <div class="d-flex justify-content-sm-evenly team-sub mt-4">
                 <div class="player-card mt-3 mb-3 overflow-y-hidden" >
-                    <h3 class="overflow-y-hidden text-center mb-3">POS</h3>
+                    <h3 id="position-12" class="overflow-y-hidden text-center mb-3">POS</h3>
                     <button id="select-player" class="squad-players">
-                        <div>
-                            <img class="squad-jersey" src="../static/images/jersey.png">
-                        </div>
-                        <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                        <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                            <div>
+                                <img id="image-12" class="squad-jersey" src="../static/images/jersey.png">
+                            </div>
+                            <select name="" id="player-name-12" class="testing">
+                            </select>
                     </button>
                 </div>
 
                 <div class="player-card mt-3 mb-3 overflow-y-hidden" >
-                    <h3 class="overflow-y-hidden text-center mb-3">POS</h3>
+                    <h3 id="position-13" class="overflow-y-hidden text-center mb-3">POS</h3>
                     <button id="select-player" class="squad-players">
-                        <div>
-                            <img class="squad-jersey" src="../static/images/jersey.png">
-                        </div>
-                        <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                        <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-13" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-13" class="testing">
+                                </select>
                     </button>
                 </div>
 
                 <div class="player-card mt-3 mb-3 overflow-y-hidden" >
-                    <h3 class="overflow-y-hidden text-center mb-3">POS</h3>
+                    <h3 id="position-14" class="overflow-y-hidden text-center mb-3">POS</h3>
                     <button id="select-player" class="squad-players">
-                        <div>
-                            <img class="squad-jersey" src="../static/images/jersey.png">
-                        </div>
-                        <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                        <div id="opponent" class="overflow-y-hidden text-center">OPP</div>
+                                <div>
+                                    <img id="image-14" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-14" class="testing">
+                                </select>
                     </button>
                 </div>
 
                 <div class="player-card mt-3 mb-3 overflow-y-hidden" >
-                    <h3 class="overflow-y-hidden text-center mb-3">POS</h3>
+                    <h3 id="position-15" class="overflow-y-hidden text-center mb-3">POS</h3>
                     <button id="select-player" class="squad-players">
-                        <div>
-                            <img class="squad-jersey" src="../static/images/jersey.png">
-                        </div>
-                        <div id="player-name" class="overflow-y-hidden text-center">Player Name</div>
-                        <div id="opponent" class="overflow-y-hidden text-center" style="background: rgba(233, 249, 241, 0.3);">OPP</div>
+                                <div>
+                                    <img id="image-15" class="squad-jersey" src="../static/images/jersey.png">
+                                </div>
+                                <select name="" id="player-name-15" class="testing">
+                                </select>
                     </button>
                 </div>
             </div>
         </div>
     </div>
     <div class="container d-flex justify-content-sm-evenly mt-5 mb-5">
-        <button id="submitBtn" class="btn btn-success btn-lg" onclick="submitTeam()">Save Your Team</button>
+        <form method="POST" action="{{url_for('my_team.save_my_team')}}">
+                <input type="hidden" name="starting_players" value="" id="startingPlayersHidden">
+                <input type="hidden" name="bench_players" value="" id="benchPlayersHidden">
+                <button id="submitBtn" class="btn btn-success btn-lg">Save Your Team</button>
+        </form>
     </div>
 </section>
 {% endblock %}
