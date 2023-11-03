@@ -16,31 +16,61 @@ def index():
         "event/{event_id}/live"
     ]
 
-    players_url = f"https://fantasy.premierleague.com/api/{endpoints[1]}?future=1"
-    res = requests.get(players_url)
-    out = res.json()
+    # get teams
+    teams = {}
+    response = requests.get(api_url)
+    data = response.json()
+    for team in data["teams"]:
+        teams[team["id"]] = team
 
-    my_set = set()  # Define a set to store unique dates
+    # get fixtures
+    fixture_url = f"https://fantasy.premierleague.com/api/{endpoints[1]}?future=1"
+    fixture_response = requests.get(fixture_url)
+    fixture_data = fixture_response.json()
 
-    for i in range(0, len(out)):
-        data = out[i].get('kickoff_time')
-        print(data)
-        time = (data.split('T'))[0].split('-')
+    fixtures = {}
+    for fixture in fixture_data:
+        date = fixture["kickoff_time"]
+        time = (date.split('T'))[0].split('-')
         year, month, day = (time[0], time[1], time[2])
         year = int(year)
         month = int(month)
         day = int(day)
         date_obj = datetime(year, month, day)
-
-        # Format the date including the day of the week
         date_in_words = date_obj.strftime("%A %d %B %Y")
 
-        my_set.add(date_in_words)  # Add the formatted date to the set
+        fixture["team_a"] = teams[fixture["team_a"]]
+        fixture["team_h"] = teams[fixture["team_h"]]
 
-    # Convert the set to a list
-    date_list = list(my_set)
+        # check if date_in_words exists in fixtures
+        if date_in_words in fixtures:
+            fixtures[date_in_words].append({
+                "team_a": {
+                    "name": fixture["team_a"]["name"],
+                    "short_name": fixture["team_a"]["short_name"],
+                    "image": "https://resources.premierleague.com/premierleague/badges/70/t" + str(fixture["team_a"]["code"]) + ".png"
+                },
+                "team_h": {
+                    "name": fixture["team_h"]["name"],
+                    "short_name": fixture["team_h"]["short_name"],
+                    "image": "https://resources.premierleague.com/premierleague/badges/70/t" + str(fixture["team_h"]["code"]) + ".png"
+                },
+                "time": date.split('T')[1]
+            })
+        else:
+            fixtures[date_in_words] = [{
+                "team_a": {
+                    "name": fixture["team_a"]["name"],
+                    "short_name": fixture["team_a"]["short_name"],
+                    "image": "https://resources.premierleague.com/premierleague/badges/70/t" + str(fixture["team_a"]["code"]) + ".png"
+                },
+                "team_h": {
+                    "name": fixture["team_h"]["name"],
+                    "short_name": fixture["team_h"]["short_name"],
+                    "image": "https://resources.premierleague.com/premierleague/badges/70/t" + str(fixture["team_h"]["code"]) + ".png"
+                },
+                "time": date.split('T')[1]
+            }]
+    return render_template('fixtures.html', fixtures=fixtures)
 
-    # Sort the list chronologically
-    sorted_dates = sorted(date_list, key=lambda x: datetime.strptime(x, "%A %d %B %Y"))
-    return render_template('fixtures.html', sorted_dates=sorted_dates)
 

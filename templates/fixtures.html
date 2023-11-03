@@ -5,17 +5,37 @@
 <section>
     <div class="container">
         <div class="game-schedule">
-            <h1 class="overflow-y-hidden">English Premier League Schedule</h1>
-            {% for date in sorted_dates %}
-            <h2 class="overflow-y-hidden">Date {{ date }}</h2>
+            <h1 class="overflow-y-hidden mt-4 mb-4">English Premier League Schedule</h1>
+            {% for key, value in fixtures.items() %}
+            <section class="d-flex flex-column justify-content-center align-items-center">
+                <span class="border border-primary rounded-2 p-2 fw-bold">{{key}}</span>
+                <br/>
+                {% for v in value %}
+                <div class="w-100 d-flex align-items-center border-bottom pb-2">
+                    <div style="text-align:right; flex: 1 1 calc(50% - 40px);">
+                        {{v.team_h["name"]}}
+                        <img src="{{ v.team_h['image'] }}" style="width: 35px; height:35px;">
+                    </div>
+
+                    <span style="width:50px;  margin-inline: 0.25rem; text-align:center;">{{ v.time[:-4] }}</span>
+                    <div style="flex: 1 1 calc(50% - 40px);">
+                        <img style="width: 35px; height:35px;" src="{{ v.team_a['image'] }}">
+                        {{ v.team_a["name"] }}
+                    </div>
+
+                </div>
+                <br/>
+                {% endfor %}
+                <br/>
+                <br/>
+            </section>
+
             {% endfor %}
-<!--            <h3 class="overflow-y-hidden"> Date {{ date_in_words }}</h3>-->
-<!--            <ul>-->
-<!--                {% for match in matches %}-->
-<!--                <li>{{ match.date }} - {{ match.home_team }} vs. {{ match.away_team }}</li>-->
-<!--                {% endfor %}-->
-<!--            </ul>-->
+            <br/>
+            <br/>
         </div>
     </div>
 </section>
 {% endblock %}
+
+
